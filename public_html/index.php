@@ -13,29 +13,7 @@ $container = $app->getContainer();
 
 $container['view'] = new \Slim\Views\PhpRenderer("../resouces/views/");
 
-$app->get('/', function ($request ,$response) {
-   
-    $vars['page'] = "home";   
-    $response = $this->view->render($response, 'template.php', $vars);
-    
-    return $response;
-});
-
-$app->get('/sobre', function ($request ,$response) {
-   
-    $vars['page'] = "sobre";   
-    $response = $this->view->render($response, 'template.php', $vars);
-    
-    return $response;
-});
-
-$app->get('/contato', function ($request ,$response) {
-   
-    $vars['page'] = "contato";   
-    $response = $this->view->render($response, 'template.php', $vars);
-    
-    return $response;
-});
+require_once '..\App\routes.php';
 
 $app->run();
 
